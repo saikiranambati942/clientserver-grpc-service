@@ -1,0 +1,20 @@
+// currency_conversion.proto
+// this file will be used to generate the grpc client and server interfaces in Go
+
+syntax = "proto3";
+
+package proto;
+
+message CurrencyConversionRequest {
+  string from = 1;
+  string to = 2;
+  float value = 3;
+}
+
+message CurrencyConversionResponse {
+  float converted_value = 1;
+}
+
+service CurrencyConversionService {
+  rpc Convert(CurrencyConversionRequest) returns (CurrencyConversionResponse) {}
+}
