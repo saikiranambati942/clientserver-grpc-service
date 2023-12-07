@@ -1,9 +1,10 @@
 package main
 
 import (
-	"GolangGRPC/proto"
 	"context"
 	"fmt"
+	"grpcapp/proto"
+
 	"google.golang.org/grpc"
 )
 
@@ -20,9 +21,9 @@ func main() {
 	request := &proto.CurrencyConversionRequest{
 		From:  "USD",
 		To:    "INR",
-		Value: 2,
+		Value: 3,
 	}
-	response,err:=client.Convert(context.Background(),request)
+	response, err := client.Convert(context.Background(), request)
 	if err != nil {
 		fmt.Println(err)
 		return

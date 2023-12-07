@@ -1,11 +1,12 @@
 package main
 
 import (
-	"GolangGRPC/proto"
 	"context"
 	"fmt"
-	"google.golang.org/grpc"
+	"grpcapp/proto"
 	"net"
+
+	"google.golang.org/grpc"
 )
 
 type myGRPCServer struct {
@@ -15,7 +16,7 @@ type myGRPCServer struct {
 func (s *myGRPCServer) Convert(ctx context.Context, request *proto.CurrencyConversionRequest) (*proto.CurrencyConversionResponse, error) {
 	fmt.Printf("request received to convert currency %+v \n", request)
 	return &proto.CurrencyConversionResponse{
-		ConvertedValue: 74.02*request.Value,
+		ConvertedValue: 74.02 * request.Value,
 	}, nil
 }
 
